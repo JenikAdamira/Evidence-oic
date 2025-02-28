@@ -135,13 +135,18 @@ const formular = document.getElementById("formular");
 
             const novaRadka = tabulka.insertRow();
             novaRadka.innerHTML = `
-                <td><span class="math-inline">\{smlouva\.datumPlatnosti\}</td\>
-<td\></span>{smlouva.cisloSmlouvy}</td>
-                <td><span class="math-inline">\{smlouva\.nazevSmlouvy\}</td\>
-<td\></span>{smlouva.cisloAkce}</td>
-                <td><span class="math-inline">\{smlouva\.datumUzavreni\}</td\>
-<td\></span>{smlouva.tdi}</td>
-                <td><span class="math-inline">\{smlouva\.email\}</td\>
-<td\>
-<div style\="display\: flex; gap\: 5px;"\>
-<button onclick\="editovatSmlouvu\(</span>{smlouva.id})
+novaRadka.innerHTML = `
+    <td>${smlouva.datumPlatnosti}</td>
+    <td>${smlouva.cisloSmlouvy}</td>
+    <td>${smlouva.nazevSmlouvy}</td>
+    <td>${smlouva.cisloAkce}</td>
+    <td>${smlouva.datumUzavreni}</td>
+    <td>${smlouva.tdi}</td>
+    <td>${smlouva.email}</td>
+    <td>
+        <div style="display: flex; gap: 5px;">
+            <button onclick="editovatSmlouvu(${smlouva.id})">Editovat</button>
+            <button onclick="smazatSmlouvu(${smlouva.id})">Smazat</button>
+        </div>
+    </td>
+`;
