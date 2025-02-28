@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>Evidence smluv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Evidence smluv</h1>
+        <form id="formular">
+            <input type="text" id="cisloSmlouvy" placeholder="Číslo smlouvy" required>
+            <input type="text" id="nazevSmlouvy" placeholder="Název smlouvy" required>
+            <input type="text" id="cisloAkce" placeholder="Číslo akce">
+            <input type="date" id="datumUzavreni" placeholder="Datum uzavření">
+            <input type="date" id="datumPlatnosti" placeholder="Datum platnosti" required>
+            <input type="text" id="tdi" placeholder="TDI">
+	    <input type="email" id="email" placeholder="E-mail">
+            <button type="submit">Uložit smlouvu</button>
+        </form>
+        <input type="text" id="vyhledavani" placeholder="Hledat smlouvu">
+        <table id="tabulka">
+            <thead>
+                <tr>
+                    <th>Datum platnosti</th>
+                    <th>Číslo smlouvy</th>
+                    <th>Název smlouvy</th>
+                    <th>Číslo akce</th>
+                    <th>Datum uzavření</th>
+                    <th>TDI</th>
+		    <th>E-mail</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
