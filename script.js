@@ -134,7 +134,6 @@ const formular = document.getElementById("formular");
             const rozdilMesicu = (platnost.getFullYear() - dnes.getFullYear()) * 12 + platnost.getMonth() - dnes.getMonth();
 
             const novaRadka = tabulka.insertRow();
-            novaRadka.innerHTML = `
 novaRadka.innerHTML = `
     <td>${smlouva.datumPlatnosti}</td>
     <td>${smlouva.cisloSmlouvy}</td>
