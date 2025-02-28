@@ -56,37 +56,6 @@ formular.addEventListener("submit", function (event) {
     odeslatDataDoGoogleSheets(smlouva);
 });
 
-function smazatSmlouvu(id) {
-    if (confirm("Opravdu chcete smazat tuto smlouvu?")) {
-        smlouvy = smlouvy.filter(smlouva => smlouva.id !== id);
-        ulozitSmlouvy();
-        odeslatDataDoGoogleSheets(smlouvy);
-    }
-}
-
-function editovatSmlouvu(id) {
-    const smlouva = smlouvy.find(sml => sml.id === id);
-    if (!smlouva) return;
-    document.getElementById("cisloSmlouvy").value = smlouva.cisloSmlouvy;
-    document.getElementById("nazevSmlouvy").value = smlouva.nazevSmlouvy;
-    document.getElementById("cisloAkce").value = smlouva.cisloAkce;
-    document.getElementById("datumUzavreni").value = smlouva.datumUzavreni;
-    document.getElementById("datumPlatnosti").value = smlouva.datumPlatnosti;
-    document.getElementById("tdi").value = smlouva.tdi;
-    document.getElementById("email").value = smlouva.email;
-    smlouvy = smlouvy.filter(sml => sml.id !== id);
-    ulozitSmlouvy();
-    odeslatDataDoGoogleSheets(smlouvy);
-}
-
-vyhledavani.addEventListener("input", function () {
-    const filtr = vyhledavani.value.toLowerCase();
-    const filtrovaneSmlouvy = smlouvy.filter(smlouva =>
-        Object.values(smlouva).some(value => String(value).toLowerCase().includes(filtr))
-    );
-    zobrazSmlouvy(filtrovaneSmlouvy);
-});
-
 function zobrazSmlouvy(filteredSmlouvy = null) {
     tabulka.innerHTML = "";
     let data = filteredSmlouvy || JSON.parse(localStorage.getItem("smlouvy")) || [];
