@@ -1,8 +1,11 @@
+# Kvůli resetu musím znovu vytvořit upravený soubor script.js
+
+script_js_content = """\
 const formular = document.getElementById("formular");
 const tabulka = document.getElementById("tabulka").getElementsByTagName("tbody")[0];
 const vyhledavani = document.getElementById("vyhledavani");
 
-const URL_GOOGLE_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzQbyDPKTY8BCgZWZa7uMRrdeH0wKo8nEl5HfNIbwT5Wz4HXoOiwQ_8YTRFudDc2fJi/exec"; // Sem vlož svou API URL
+const URL_PROXY = "evidence-oic-18es.vercel.app"; // Použití Vercel proxy místo přímého volání Google Apps Script
 
 let smlouvy = JSON.parse(localStorage.getItem("smlouvy")) || [];
 
@@ -13,9 +16,8 @@ function ulozitSmlouvy() {
 }
 
 function odeslatDataDoGoogleSheets(data) {
-    fetch(URL_GOOGLE_APPS_SCRIPT, {
+    fetch(URL_PROXY, {
         method: "POST",
-        mode: "cors", // ✅ Přidá podporu CORS
         headers: {
             "Content-Type": "application/json"
         },
@@ -60,7 +62,7 @@ formular.addEventListener("submit", function (event) {
 
     smlouvy.push(smlouva);
     ulozitSmlouvy();  // ✅ Uloží do localStorage
-    odeslatDataDoGoogleSheets(smlouva);  // ✅ Odeslání do Google Sheets
+    odeslatDataDoGoogleSheets(smlouva);  // ✅ Odeslání přes Vercel proxy
 
     formular.reset();
 });
@@ -149,3 +151,11 @@ function zobrazSmlouvy(filteredSmlouvy = null) {
 window.onload = function () {
     zobrazSmlouvy();
 };
+"""
+
+# Uložení souboru pro stažení
+file_path = "/mnt/data/script.js"
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(script_js_content)
+
+file_path
