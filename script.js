@@ -144,6 +144,7 @@ function zobrazSmlouvy(filteredSmlouvy = null) {
         `;
     });
 }
+
 // Načtení smluv po spuštění
 window.onload = function () {
     zobrazSmlouvy();
