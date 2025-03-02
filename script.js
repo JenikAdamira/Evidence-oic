@@ -12,16 +12,16 @@ function ulozitSmlouvy() {
     zobrazSmlouvy();
 }
 
-// Funkce pro odeslání dat do Google Sheets
 function odeslatDataDoGoogleSheets(data) {
     fetch(URL_GOOGLE_APPS_SCRIPT, {
         method: "POST",
+        mode: "cors", // ✅ Přidá podporu CORS
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
         console.log("Data odeslána do Google Sheets:", data);
     })
