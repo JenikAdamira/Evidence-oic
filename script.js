@@ -2,12 +2,32 @@ const formular = document.getElementById("formular");
 const tabulka = document.getElementById("tabulka").getElementsByTagName("tbody")[0];
 const vyhledavani = document.getElementById("vyhledavani");
 
+const URL_GOOGLE_APPS_SCRIPT = "TVOJE_API_URL"; // Zde vlož svou API URL
+
 let smlouvy = JSON.parse(localStorage.getItem("smlouvy")) || [];
 
 // Uloží smlouvy do localStorage a obnoví zobrazení
 function ulozitSmlouvy() {
     localStorage.setItem("smlouvy", JSON.stringify(smlouvy));
     zobrazSmlouvy();
+}
+
+// Funkce pro odeslání dat do Google Sheets
+function odeslatDataDoGoogleSheets(data) {
+    fetch(URL_GOOGLE_APPS_SCRIPT, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Data odeslána do Google Sheets:", data);
+    })
+    .catch(error => {
+        console.error("Chyba při odesílání dat:", error);
+    });
 }
 
 // Přidání smlouvy
@@ -39,7 +59,9 @@ formular.addEventListener("submit", function (event) {
     };
 
     smlouvy.push(smlouva);
-    ulozitSmlouvy();
+    ulozitSmlouvy(); // Uloží do localStorage
+    odeslatDataDoGoogleSheets(smlouva); // Odeslání do Google Sheets
+
     formular.reset();
 });
 
