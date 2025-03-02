@@ -2,7 +2,7 @@ const formular = document.getElementById("formular");
 const tabulka = document.getElementById("tabulka").getElementsByTagName("tbody")[0];
 const vyhledavani = document.getElementById("vyhledavani");
 
-const URL_PROXY = "https://evidence-oic-18es.vercel.app/"; // Použití Vercel proxy místo přímého volání Google Apps Script
+const URL_PROXY = "https://evidence-oic.vercel.app/"; // Použití Vercel proxy místo přímého volání Google Apps Script
 
 let smlouvy = JSON.parse(localStorage.getItem("smlouvy")) || [];
 
