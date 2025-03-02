@@ -2,7 +2,7 @@ const formular = document.getElementById("formular");
 const tabulka = document.getElementById("tabulka").getElementsByTagName("tbody")[0];
 const vyhledavani = document.getElementById("vyhledavani");
 
-const URL_GOOGLE_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyYM_eyk9fJIFtvlp0xkYQ-_TXd0wewSoy94Zx3XnDUFImMMDm_rmWXCSAPWTSzrfQG/exec"; // Sem vlož svou API URL
+const URL_GOOGLE_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwZdIy0OZgp5Y3c3cM6RoTVMP7Si2GrRXcvJc67tmwOOkCf53Nhr0URlsUVVho2yTDg/exec"; // Sem vlož svou API URL
 
 let smlouvy = JSON.parse(localStorage.getItem("smlouvy")) || [];
 
