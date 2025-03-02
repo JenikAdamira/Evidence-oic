@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/TVOJE_API_URL/exec";
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD13zrD75Ri2jV6--COrlHa59my30xxx-yZeFyFmnRZPcEBB-Z8kICQXkTwGNbaurL/exec";
 
 // Zpracování POST požadavků
 app.post("/", async (req, res) => {
