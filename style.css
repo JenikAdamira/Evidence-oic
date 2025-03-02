@@ -81,12 +81,17 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tr.expired {
-    background-color: #ffe6e6;
+/* Zvýraznění smluv */
+.expired {
+    background-color: #ffcccc !important; /* Červená - smlouva po platnosti */
 }
 
-tr.expiring-soon {
-    background-color: #fff3cd;
+.expiring-soon {
+    background-color: #ffcc99 !important; /* Oranžová - smlouva vyprší do 3 měsíců */
+}
+
+.expiring-medium {
+    background-color: #ffff99 !important; /* Žlutá - smlouva vyprší mezi 3 až 6 měsíci */
 }
 
 button {
