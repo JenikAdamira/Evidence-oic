@@ -1,11 +1,8 @@
-# Kvůli resetu musím znovu vytvořit upravený soubor script.js
-
-script_js_content = """\
 const formular = document.getElementById("formular");
 const tabulka = document.getElementById("tabulka").getElementsByTagName("tbody")[0];
 const vyhledavani = document.getElementById("vyhledavani");
 
-const URL_PROXY = "evidence-oic-18es.vercel.app"; // Použití Vercel proxy místo přímého volání Google Apps Script
+const URL_PROXY = "https://moje-proxy.vercel.app/"; // Použití Vercel proxy místo přímého volání Google Apps Script
 
 let smlouvy = JSON.parse(localStorage.getItem("smlouvy")) || [];
 
@@ -151,11 +148,3 @@ function zobrazSmlouvy(filteredSmlouvy = null) {
 window.onload = function () {
     zobrazSmlouvy();
 };
-"""
-
-# Uložení souboru pro stažení
-file_path = "/mnt/data/script.js"
-with open(file_path, "w", encoding="utf-8") as file:
-    file.write(script_js_content)
-
-file_path
